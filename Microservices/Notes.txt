@@ -1,0 +1,31 @@
+MicroServices: 
+
+Monolith Application : Different Components like
+
+-Presentation -  responsible for handling Http requests, and response
+- Business Logic - the application logic
+- Data Layer  - data ccess objects for acessing the data from any datasource
+- Application Integration - integrate with other services
+
+While deploying, all the above logical modules are packaged into one monolith. 
+
+Benefits of Monolith :
+ - Simple to Develop
+ - Simple to Test (we can perform end-to-end testing with some tools like selenium etc.)
+ - Simple to deploy (copy the packaged application to a server)
+ - Scaling horizontally is very simple and easy 
+
+DrawBacks of Monolith :
+- Limitation in terms of size and complexity
+- Understanding and making changes is tough
+- More complex the application, start up time can slow down
+- For every change, there is a need to re deploy the entire application
+- Continuous deployment is difficult
+- Different modules can have conflicting resource requirements, making it difficult to scale
+- adopting to new technologies/frameworks/languages is difficult since it effects the entire application
+
+Microservices : is about splitting the large,complex systems vertically based on functionality or business requirements into smaller sub-systems.
+
+- The sub systems communicates with each other via networks calls, messaging, REST services etc.
+
+

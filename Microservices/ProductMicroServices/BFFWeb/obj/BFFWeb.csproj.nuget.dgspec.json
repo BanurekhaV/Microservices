@@ -1,0 +1,198 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\FIS-2\\Microservices\\ProductMicroServices\\BFFWeb\\BFFWeb.csproj": {}
+  },
+  "projects": {
+    "C:\\FIS-2\\Microservices\\ProductMicroServices\\BFFWeb\\BFFWeb.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FIS-2\\Microservices\\ProductMicroServices\\BFFWeb\\BFFWeb.csproj",
+        "projectName": "BFFWeb",
+        "projectPath": "C:\\FIS-2\\Microservices\\ProductMicroServices\\BFFWeb\\BFFWeb.csproj",
+        "packagesPath": "C:\\Users\\Banurekha\\.nuget\\packages\\",
+        "outputPath": "C:\\FIS-2\\Microservices\\ProductMicroServices\\BFFWeb\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Banurekha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\FIS-2\\Microservices\\ProductMicroServices\\CustomerMicroServices\\CustomerMicroServices.csproj": {
+                "projectPath": "C:\\FIS-2\\Microservices\\ProductMicroServices\\CustomerMicroServices\\CustomerMicroServices.csproj"
+              },
+              "C:\\FIS-2\\Microservices\\ProductMicroServices\\ProductMicroServices\\ProductMicroServices.csproj": {
+                "projectPath": "C:\\FIS-2\\Microservices\\ProductMicroServices\\ProductMicroServices\\ProductMicroServices.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\FIS-2\\Microservices\\ProductMicroServices\\CustomerMicroServices\\CustomerMicroServices.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FIS-2\\Microservices\\ProductMicroServices\\CustomerMicroServices\\CustomerMicroServices.csproj",
+        "projectName": "CustomerMicroServices",
+        "projectPath": "C:\\FIS-2\\Microservices\\ProductMicroServices\\CustomerMicroServices\\CustomerMicroServices.csproj",
+        "packagesPath": "C:\\Users\\Banurekha\\.nuget\\packages\\",
+        "outputPath": "C:\\FIS-2\\Microservices\\ProductMicroServices\\CustomerMicroServices\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Banurekha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\FIS-2\\Microservices\\ProductMicroServices\\ProductMicroServices\\ProductMicroServices.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FIS-2\\Microservices\\ProductMicroServices\\ProductMicroServices\\ProductMicroServices.csproj",
+        "projectName": "ProductMicroServices",
+        "projectPath": "C:\\FIS-2\\Microservices\\ProductMicroServices\\ProductMicroServices\\ProductMicroServices.csproj",
+        "packagesPath": "C:\\Users\\Banurekha\\.nuget\\packages\\",
+        "outputPath": "C:\\FIS-2\\Microservices\\ProductMicroServices\\ProductMicroServices\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Banurekha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

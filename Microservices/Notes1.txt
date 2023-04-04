@@ -1,0 +1,95 @@
+MVC - Model View Controller Architecture
+
+Seperation of Concerns
+
+Model : Is responsible for keeping the database opereational logic like connecting, retrieving information from data sorces (database/object,entites,xml)
+
+View : Is responsible for serving the web pages (UI to the client)
+
+Controller : responsible for all business logic. 
+
+MVC is a popular framework for developing web based applications.
+It is faster, robust and secure
+Is the next generation technology, successor to asp.net
+Is Light weight
+Designs and codes are neatly seperated
+It uses pure HTML or Html Helper classes (No Server controls)
+It uses Controller based URL
+Does not implement ViewState
+Uses Layouts rather than Master Pages
+Uses Razor Syntax for customization
+ASP.Net MVC is an open source
+
+
+Controllers: It is a mediator between client side request and server side response
+- Every controller must have the "Controller" suffix
+
+
+Action methods : All public methods whcih are written inside a controller are known as Action Methods.
+- Actions methods are always public
+- Cannot be overloaded
+- Cannot be static method
+- Every controller has one Action Method called Index by default
+- ActionResult is the base class of all the result types of action method
+
+ Types of Action Method with return types
+    - View Result - Represents HTML and Razor
+    - Json - represents JacaScript Object Notation (AJAX application)
+    - Content - Represents Text
+    - File - (FileContent/FilePath/FileStream)
+    - Empty - No result
+    - Redirect to Action/Redirect : Redirecting to a new url
+
+JSON: is textual representation of any object
+{" key ": "value"}
+
+
+Views: Every Controller has a folder for the controller
+       Every action method of the controller that results in a view will have .cshtml file corresponding to the actionmethod name.
+.cshtml file makes use of a Razor Syntax to write server based codes directly into the view page(html)
+
+Razor : is a markup syntax that allows embedded programming code along with html tags
+- is represented with a @{... } block to write the program code
+- All inline expressions like variables, function etc starts with @ and ends with a ;
+- string values within the razor are kept using " "
+- Comments in Razor : @*
+                      single line : //
+                      multi line : /*   */
+                      html comments <!--      -->
+                      *@
+- Accessing data from a Model in .cshtml file is as below:
+   @model
+
+- Calling one view in another view by passing an object
+
+
+Data Transfer :Passing of information from controller to Views is done using :
+
+ -ViewBag : Is a Dynamic Datatype.  
+            Has a short life, means once it passesthe data to the view from controller, it becomes null
+It does not require any typecasting
+  eg : ViewBag.Mydata="This is View bag";
+and to acces it in the view  - @ViewBag.Mydata
+
+ -ViewData : Is a dictionary object
+             stores data as key value pairs
+             after transfer looses data
+             derived from ViewDataDictionary
+             This requires typecasting for complex type
+
+Eg : ViewData["MyData"]="This is ViewData"
+
+and to access it in the view @ViewData["MyData"]
+
+ -TempData : is a dcitionary object
+             internally uses Session to store value
+             it can store data, for 2 subsequent requests.    
+             In order to reatin the values for the third request, we can use TempData.Keep();
+             derived from TempDataDictionary
+             
+
+Data Transfer from View to Controller is done using
+  - a model object 
+  - arguments - should match exactly the property of the model
+  - request object - http request object
+  - forms collection

@@ -1,0 +1,177 @@
+Design Patterns for Microservice Architecture: 
+
+Decomposition pattern - Strangler pattern
+Integration pattern - API gateway/Aggregator pattern
+Database pattern - Database pattern, CQRS, Saga, 
+Communication pattern - Messaging, Event driven pattern
+Cross-cutting concern pattern - Circuit breaker pattern
+Observability pattern - log,health,performance
+Deployment pattern 
+
+Database per Service :
+ pros: ownership of data to a service
+       loose coupling among development teams
+
+When to Use :
+
+ use when building large enterprise applications
+ multiple teams are developing
+
+Cons: Sharing data among service - a challenge
+      providing application level ACID transactional guarantee - more difficult
+      proper planning and designing in the beginning - a real challenge
+
+When Not to Use
+ Small scale applications. Built by single teams
+
+
+Event Sourcing/Event based Architecture :  Instead of storing the business entity state(data), event sourcing state changes are stored as events. This then gets deducted by processing all the events and replaying them and compute the appropriate data stores
+
+pros : provides atomicity to highly scalable systems
+       History of entity events
+       
+
+Cons : Reading entities from the event store is challanging and needs another data store (CQRS pattern)
+
+Technology Enablers : Apache kakfa, Mongo DB, Cassandra, Dynamo DB, Cosmos DB
+
+CQRS : Command Query Responsibility Segregation
+ it has the systems data modification part(Command) , and data read part(Query)
+
+Backends for Frontends(BFF) : Enabling diffrent customized backends for specific UI clients
+
+Pros : Seperation of concern
+       Security
+       Avoid chatty communication between UI's and downstream microservices
+
+Cons: Code duplication
+      Careful designing, inorder not to have any business logic and have only client specific logic 
+
+BFF services : DTO(Data Transfer Objects)
+
+
+http://localhost:9230/api/product
+
+http://localhost:1274/api/customer
+
+1. Create an CoreWeb Api project called ProductServices
+   Disable HTTPs/Docker checkboxes
+2. Add a class called Product with few Properties
+3. Add an Interface called IProductRepository with one 
+    GetAllProducts method
+4. Create another class called ProductRepository that implements the above interface method
+5. Inject the Irepository class object in the constructor  
+  Add a controller Product and write one HTTP get method to get all products
+6. Register the Repository class in the startup.cs
+
+Run the above and verify
+
+Same as above create a CoreWebAPI project called CustomerServices 
+
+-Customer class with properties
+- ICustomerRepository with one GetAllCustomers method
+- CustomerRepository implementing the above interface
+- Add controller called Customer and in the constructor inject ICustomerRepository
+- Include a HttpGet method to getallcustomers
+- Regsiter the repository in the startup.cs file
+
+run and verify
+
+Note down the URL of the above 2 apis, which has to be given in the BFF projects controllers HttpGet method
+
+Next create 2 classes called CustomerDTO in customerservices project and ProductDTO in productservices project
+
+Include the properties with additional info viz, JSONIgnore/with condition
+
+Next create a BFF project called BFFWEB for web UI and BFFMobile for mobile UI as 2 different projects
+
+-Add a controller called BFFWeb and in the controller which looks as below:
+
+namespace BFFWeb.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BFFWebController : ControllerBase
+    {
+        [HttpGet("GetAllProducts")]
+
+        public async Task<List<ProductDTO>> GetAllProducts()
+        {
+            return await GetAllProductsInternal();
+        }
+
+        private async Task<List<ProductDTO>> GetAllProductsInternal()
+        {
+            string baseUrl = "http://localhost:9230/api/";
+            string url = baseUrl + "Product/GetAllProducts";
+
+            using(HttpClient client = new HttpClient())
+            {
+                using(HttpResponseMessage responsemsg = await client.GetAsync(url))
+                {
+                    using(HttpContent content= responsemsg.Content)
+                    {
+                        string data = await content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<List<ProductDTO>>(data);
+                    }
+                }
+            }
+
+        }
+
+
+        [HttpGet("GetAllCustomers")]
+        public async Task<List<CustomerDTO>> GetAllCustomers()
+        {
+            return await GetAllCustomersInternal();
+        }
+
+        private async Task<List<CustomerDTO>>
+        GetAllCustomersInternal()
+        {
+            string baseURL = "http://localhost:1274/api/";  
+            string url = baseURL + "Customer/GetAllCustomers";
+            using (HttpClient client = new HttpClient())
+            {
+                using (HttpResponseMessage responseMessage = await client.GetAsync(url))
+                {
+                    using (HttpContent content = responseMessage.Content)
+                    {
+                        string data = await content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<List<CustomerDTO>>(data);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+Docker : is a tool designed to make it easier to create,deploy, and run applications using containers
+-They are alternatives to Virtual machines
+-They are light weight
+-They use the Host Os
+-No need to pre allocate RAM for containers
+
+
+Docker Image : Read Only template to create containers
+- They are built by Docker users
+- stored in docker hub or local registry
+
+Docker Containers : Isolated Application Platform
+-It contains everything needed to run the application 
+-Built from one or more Images
+
+Docker Registry: Storage component for Docker Images
+- Images can be stored either in Public/Private repositories    
+- Docker Hub is a cloud repository
+- We need docker registries to manage and control all images stored
+
+Docker Compose : is a configuartion file with .yaml extension, that helps to configure and run applications made out of multiple containers.
+- Can run all the apps in the containers with a single command
+
+
+
+
+
+ 

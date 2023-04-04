@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "BEIMflaG27CXy1j+hymONkG4Hf4Uy3Idi4G3B98LtXHg7VlwTi3XCiE8cCSJzIzL0OPSjwB8rADwUXG7UrLPaQ==",
+  "success": true,
+  "projectFilePath": "C:\\FIS-2\\Microservices\\ProductMicroServices\\CustomerMicroServices\\CustomerMicroServices.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Banurekha\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Banurekha\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\Banurekha\\.nuget\\packages\\system.text.json\\6.0.5\\system.text.json.6.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,116 @@
+MicroServices: 
+
+Monolith Application : Different Components like
+
+-Presentation -  responsible for handling Http requests, and response
+- Business Logic - the application logic
+- Data Layer  - data ccess objects for acessing the data from any datasource
+- Application Integration - integrate with other services
+
+While deploying, all the above logical modules are packaged into one monolith. 
+
+Benefits of Monolith :
+ - Simple to Develop
+ - Simple to Test (we can perform end-to-end testing with some tools like selenium etc.)
+ - Simple to deploy (copy the packaged application to a server)
+ - Scaling horizontally is very simple and easy 
+
+DrawBacks of Monolith :
+- Limitation in terms of size and complexity
+- Understanding and making changes is tough
+- More complex the application, start up time can slow down
+- For every change, there is a need to re deploy the entire application
+- Continuous deployment is difficult
+- Different modules can have conflicting resource requirements, making it difficult to scale
+- adopting to new technologies/frameworks/languages is difficult since it effects the entire application
+
+Microservices : is about splitting the large,complex systems vertically based on functionality or business requirements into smaller sub-systems.
+
+- The sub systems communicates with each other via networks calls, messaging, REST services etc.
+- Can take advantage of technology and resources as per the requirement of each sub system
+- Each service can use a type of database that suits best to its needs - PolyGlot Persistence
+
+NFR : non Functional Requirements
+
+Benifits of Microservices
+1. Decomposing complexity into set of manageable services that can be developed faster, and easier
+2. Understanding one service, maintaining, and fixing
+3. A focused team can be deployed to work on one service
+4. Developers are free to choose technologies 
+5. Individual services can be re-deployed
+6. Possibility of Continuous deployemnet
+7. Enables each service to be scaled independently
+
+Drawback:
+
+1. Multiple updates to multiple database owned by different services because of partitioned database
+2. Testing Microservices is more complex - Similar test for a service requires to launch that service and any other service that it depends on
+3. Implementing changes that span multiple services requires careful planning and rollout of each service meticulously
+4. Configuring each service instance, deploying, scaling and monitoring is a challenge
+5. Implement service discovery mechanisms and requires high level of automation
+
+When to use Microservices :
+
+1. Enterprise Application development when multiple teams work on the application
+2. Web-Scale Development
+3. Long term goals/gains 
+4. Skilled Software architects(sr. engg., designers, microservice Architect
+
+
+Microservices vs. ApI
+
+It's an architecural style that structures applications as a collection of small autonomous services built around a business domain. Each being a self-contained service implementing a single business capability
+- are components
+- some can be used to expose one or more API
+-small in size
+- can be built quickly
+
+API : Is an Appl. prog. interface through which, we can ensure two or more applln.s communicate with each other to hadnle client request
+- are interfaces
+- ApI is one of the means to build and expose microservices architecture
+-large in size
+-take longer time to build
+
+
+API Gateway:  (44378 - customers service, 44392 - product services)
+
+Add a new Core Web Api project into the existing microservices application
+- Install Ocelot package fron nuget on the gateway project
+- Configure the project and define Microservices endpoints in the program.cs file of the api gateway
+- Add Ocelot Services followed by Ocelot Middleware and await the task in startup.cs
+ 
+- Configure the root at tghe gateway api as below
+
+  - DownStreamPathTemplate : actual path of the endpoint in the microservice to which the api gateway redirect all incoming client request
+
+ - DownStreamSchema : Schema used by microservice which are HTTPS
+- DownStreamHostAndPorts : defines the location of the Microservice (host and port numbers)
+- UpStreamPathTemplate - is apath directed to ocelot api gateway, that is exposed to send requests from the client
+- UpStreamHttpMethod - HTTP methods 
+
+
+
+as per our project we have 2 downstreams
+
+1. https://localhost:44378/api/customers - Downstream url
+
+2.  https://localhost:44392/api/products - Downstream url
+
+
+Assignment - Uber Microservices Management
+
+Passenger Management :  Get,Put,Post
+
+Driver Management : Get, Put, Post
+
+Uber gateway should connect up the microservices
+-------------------------------------
+
+Passenger UI
+
+Billing 
+
+Trip Management
+
+
+
